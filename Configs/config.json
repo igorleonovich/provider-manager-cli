@@ -1,0 +1,28 @@
+{
+  "deploymentOS": {
+    "image": "image.vbox",
+    "config": {
+      "osType": "Ubuntu",
+      "osVersion": "18.04",
+      "environments": [
+        {
+          "instances": ["dev", "staging"],
+          "image": "image.vbox",
+          "subprovider": "local",
+          "config": {
+            "osType": "Ubuntu",
+            "osVersion": "18.04",
+            "script": "script.bash"
+          }
+        },
+        {
+          "instances": ["prod"],
+          "subprovider": "terraform",
+          "config": {
+            "file": "config.tf"
+          }
+        }
+      ]
+    }
+  }
+}
