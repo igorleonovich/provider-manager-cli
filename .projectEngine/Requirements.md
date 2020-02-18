@@ -10,5 +10,6 @@
       * status
       * deploy
         * config.json
+          * uuid (optional)
       * remove
         * uuid
