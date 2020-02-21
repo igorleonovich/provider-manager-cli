@@ -1,4 +1,5 @@
 import Foundation
+import SPMUtility
 
 enum Command: String {
     case status
@@ -7,14 +8,16 @@ enum Command: String {
 }
 
 public final class CLITool {
-    
-    private let arguments: [String]
-
-    public init(arguments: [String] = CommandLine.arguments) {
-        self.arguments = arguments
-    }
 
     public func run() throws {
+        
+        let parser = ArgumentParser(commandName: "pm", usage: "pm -h hostname -p port", overview: "Provider Client")
+        let hostArgument = parser.add(option: "--host", shortName: "-h", kind: String.self, usage: "Use custom host name")
+        let portArgument = parser.add(option: "--port", shortName: "-p", kind: Int.self, usage: "Use custom port")
+        let versionOption = parser.add(option: "--version", kind: Bool.self)
+        let verboseOption = parser.add(option: "--verbose", kind: Bool.self, usage: "Show more debugging information")
+        
+        
         if let firstArgument = arguments[safe: 1], let command = Command.init(rawValue: firstArgument) {
             switch command {
             case .deploy:
