@@ -54,7 +54,7 @@ public final class CLITool {
             if let error = error {
                 print(error)
             } else {
-                print("[server] deployment started]")
+                print("[server] deployment started")
             }
         }
         task.resume()
