@@ -43,7 +43,7 @@ public final class CLITool {
 
     func deploy(_ data: Data) {
         
-        guard let url = URL(string: "http://localhost:8888/deployments") else { return }
+        guard let url = URL(string: "http://localhost:8080/deployments") else { return }
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
         request.httpBody = data
@@ -61,7 +61,7 @@ public final class CLITool {
     }
 
     func remove(_ deploymentID: String) {
-        guard let url = URL(string: "http://localhost:8888/deployments/\(deploymentID)") else { return }
+        guard let url = URL(string: "http://localhost:8080/deployments/\(deploymentID)") else { return }
         var request = URLRequest(url: url)
         request.httpMethod = "DELETE"
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
@@ -78,7 +78,7 @@ public final class CLITool {
     }
     
     func status() {
-        guard let url = URL(string: "http://localhost:8888/deployments") else { return }
+        guard let url = URL(string: "http://localhost:8080/deployments") else { return }
         var request = URLRequest(url: url)
         request.httpMethod = "GET"
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
