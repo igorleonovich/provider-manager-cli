@@ -5,9 +5,11 @@ struct StatusCommand: Command {
     
     let command = "status"
     let overview = "Deployment configs status"
+    var subparser: ArgumentParser
+    var options: Options?
     
     init(parser: ArgumentParser) {
-        _ = parser.add(subparser: command, overview: overview)
+        subparser = parser.add(subparser: command, overview: overview)
     }
     
     func run(with arguments: ArgumentParser.Result) throws {

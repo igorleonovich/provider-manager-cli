@@ -5,11 +5,13 @@ struct DeployCommand: Command {
     
     let command = "deploy"
     let overview = "Deploying config"
+    var subparser: ArgumentParser
+    var options: Options?
     
     private let config: PositionalArgument<String>
     
     init(parser: ArgumentParser) {
-        let subparser = parser.add(subparser: command, overview: overview)
+        subparser = parser.add(subparser: command, overview: overview)
         config = subparser.add(positional: "config", kind: String.self, usage: "JSON config to deploy")
     }
     

@@ -6,5 +6,4 @@ registry.register(command: DeployCommand.self)
 registry.register(command: RemoveCommand.self)
 registry.run()
 
-
 RunLoop.main.run()

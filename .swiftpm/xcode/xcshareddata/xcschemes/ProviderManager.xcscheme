@@ -80,7 +80,15 @@
             isEnabled = "YES">
          </CommandLineArgument>
          <CommandLineArgument
-            argument = "/Volumes/PRODUCTCOMPANYX/ProductCompanyX/Projects/Provider/ProviderManager/Configs/config.json"
+            argument = "/Volumes/New/ProductCompanyX/Projects/Provider/ProviderManager/Configs/config.json"
+            isEnabled = "YES">
+         </CommandLineArgument>
+         <CommandLineArgument
+            argument = "--httpport=8080"
+            isEnabled = "YES">
+         </CommandLineArgument>
+         <CommandLineArgument
+            argument = "--wsport=8081"
             isEnabled = "YES">
          </CommandLineArgument>
       </CommandLineArguments>

@@ -5,11 +5,13 @@ struct RemoveCommand: Command {
     
     let command = "remove"
     let overview = "Remove deployment config"
+    var subparser: ArgumentParser
+    var options: Options?
     
     private let deploymentID: PositionalArgument<String>
     
     init(parser: ArgumentParser) {
-        let subparser = parser.add(subparser: command, overview: overview)
+        subparser = parser.add(subparser: command, overview: overview)
         deploymentID = subparser.add(positional: "deploymentID", kind: String.self, usage: "deploymentID to remove")
     }
     
