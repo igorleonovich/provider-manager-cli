@@ -29,7 +29,7 @@ struct ClientsCommand: Command {
             } else if let data = data {
                 do {
                     let clients = try JSONDecoder().decode([ProviderClient].self, from: data)
-                    print(clients)
+                    clients.forEach { print($0) }
                 } catch {
                     print(error)
                 }
