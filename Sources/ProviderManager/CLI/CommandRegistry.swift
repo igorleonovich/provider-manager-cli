@@ -7,8 +7,8 @@ struct CommandRegistry {
     private let parser: ArgumentParser
     private var commands: [Command] = []
     
-    init(usage: String, overview: String) {
-        parser = ArgumentParser(usage: usage, overview: overview)
+    init(commandName: String, usage: String, overview: String) {
+        parser = ArgumentParser(commandName: commandName, usage: usage, overview: overview)
     }
     
     mutating func register(command: Command.Type) {
