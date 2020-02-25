@@ -76,7 +76,7 @@
       </BuildableProductRunnable>
       <CommandLineArguments>
          <CommandLineArgument
-            argument = "clients"
+            argument = "deploy /Volumes/New/ProductCompanyX/Projects/Provider/ProviderManager/Configs/config.json"
             isEnabled = "YES">
          </CommandLineArgument>
          <CommandLineArgument

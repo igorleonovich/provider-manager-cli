@@ -2,9 +2,15 @@ import Foundation
 
 public final class ProviderManager: Codable {
     
-    public var id: UUID?
+    public var id: String?
+    public var type: String
     
-    init(id: UUID?) {
-        self.id = id
+    public init(type: String) {
+        self.type = type
     }
+}
+
+enum ProviderManagerType: String {
+    case CLI
+    case Web
 }

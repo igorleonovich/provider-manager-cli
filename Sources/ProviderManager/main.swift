@@ -5,16 +5,8 @@ var registry = CommandRegistry(commandName: "prom", usage: "<command> <options>"
 registry.register(command: ClientsCommand.self)
 registry.register(command: DeployCommand.self)
 registry.register(command: RemoveCommand.self)
+registry.run()
 
-do {
-    try registry.run()
-}
-catch let error as ArgumentParserError {
-    print(error.description)
-}
-catch let error {
-    print(error.localizedDescription)
-}
-
+var core: Core?
 
 RunLoop.main.run()

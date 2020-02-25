@@ -17,10 +17,16 @@ struct CommandRegistry {
         commands.append(command)
     }
     
-    func run() throws {
+    func run() {
         do {
             let parsedArguments = try parse()
             try process(arguments: parsedArguments)
+        }
+        catch let error as ArgumentParserError {
+            print(error.description)
+        }
+        catch let error {
+            print(error.localizedDescription)
         }
     }
     
