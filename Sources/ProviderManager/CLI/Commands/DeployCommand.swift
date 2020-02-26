@@ -25,19 +25,17 @@ struct DeployCommand: Command {
     private func deploy(_ config: String) throws {
         
         do {
-            let configData = try Data(contentsOf: URL(fileURLWithPath: config))
+            let deploymentConfigData = try Data(contentsOf: URL(fileURLWithPath: config))
             let managerToServerAction = ManagerToServerAction(type: ManagerToServerActionType.deployConfig.rawValue,
-                                                          data: configData)
+                                                          data: deploymentConfigData)
             let managerToServerActionData = try JSONEncoder().encode(managerToServerAction)
-            let _ = try JSONDecoder().decode(DeploymentConfig.self, from: data)
-  
             let core = Core()
             core.setup()
             core.connect { error in
                 if let error = error {
                     print(error)
                 } else {
-                    core.webSocketController.webSocket.send(data)
+                    core.webSocketController.webSocket.send(managerToServerActionData)
                 }
             }
             
