@@ -25,7 +25,10 @@ struct DeployCommand: Command {
     private func deploy(_ config: String) throws {
         
         do {
-            let data = try Data(contentsOf: URL(fileURLWithPath: config))
+            let configData = try Data(contentsOf: URL(fileURLWithPath: config))
+            let managerToServerAction = ManagerToServerAction(type: ManagerToServerActionType.deployConfig.rawValue,
+                                                          data: configData)
+            let managerToServerActionData = try JSONEncoder().encode(managerToServerAction)
             let _ = try JSONDecoder().decode(DeploymentConfig.self, from: data)
   
             let core = Core()
