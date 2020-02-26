@@ -28,13 +28,13 @@ struct DeployCommand: Command {
             let data = try Data(contentsOf: URL(fileURLWithPath: config))
             let _ = try JSONDecoder().decode(DeploymentConfig.self, from: data)
   
-            core = Core()
-            core!.setup()
-            core!.connect { error in
+            let core = Core()
+            core.setup()
+            core.connect { error in
                 if let error = error {
                     print(error)
                 } else {
-                    core!.webSocketController.webSocket.send(data)
+                    core.webSocketController.webSocket.send(data)
                 }
             }
             
