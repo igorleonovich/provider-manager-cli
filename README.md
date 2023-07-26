@@ -1,3 +1,3 @@
 # ProviderManager
 
-A description of this package.
+Host provider manager (concept)
