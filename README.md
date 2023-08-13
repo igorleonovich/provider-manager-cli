@@ -1,3 +1,3 @@
-# ProviderManager
+# Provider Manager (CLI) (Concept)
 
-Host provider manager (concept)
+Host Provider Manager
